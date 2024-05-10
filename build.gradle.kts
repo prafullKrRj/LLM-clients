@@ -1,9 +1,10 @@
 plugins {
     kotlin("jvm") version "1.9.23"
+    id("maven-publish")
 }
 
-group = "org.prafull"
-version = "1.0"
+group = "com.github.prafullKrRj"
+version = "1.0.0"
 
 repositories {
     mavenCentral()
@@ -22,11 +23,13 @@ tasks.test {
 kotlin {
     jvmToolchain(19)
 }
-tasks {
-    jar {
-        manifest {
-            attributes["Implementation-Title"] = "LLMs Client" // The project name
-            attributes["Implementation-Version"] = version // Project version
+publishing {
+    publications {
+        create<MavenPublication>("mavenJava") {
+            from(components["java"])
+            groupId = group.toString() // Converts group ID to string
+            artifactId = "llm-client" // The artifact ID (project name)
+            version = version // Converts version to string
         }
     }
 }
