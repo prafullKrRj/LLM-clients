@@ -3,7 +3,7 @@ plugins {
 }
 
 group = "org.prafull"
-version = "1.0-SNAPSHOT"
+version = "1.0"
 
 repositories {
     mavenCentral()
@@ -21,4 +21,12 @@ tasks.test {
 }
 kotlin {
     jvmToolchain(19)
+}
+tasks {
+    jar {
+        manifest {
+            attributes["Implementation-Title"] = "LLMs Client" // The project name
+            attributes["Implementation-Version"] = version // Project version
+        }
+    }
 }
