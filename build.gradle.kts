@@ -33,13 +33,13 @@ publishing {
         create<MavenPublication>("mavenJava") {
             from(components["java"])
 
-            // Provide artifacts information required by JitPack
-            artifact(tasks.getByName("sourcesJar"))
-            artifact(tasks.getByName("javadocJar"))
+            artifact(tasks["jar"]) {
+                classifier = "jar"
+            }
 
             pom {
-                name.set("llm-client")
-                description.set("A llm-client which provides functions to use different LLMs")
+                name.set("LLM-Clients")
+                description.set("Your Project Description")
                 url.set("https://github.com/prafullKrRj/LLM-clients")
                 developers {
                     developer {
@@ -49,21 +49,10 @@ publishing {
                     }
                 }
                 scm {
-                    connection.set("scm:git:https://github.com/prafullKrRj/LLM-clients.git")
+                    connection.set("scm:git:git://github.com/prafullKrRj/LLM-clients.git")
                     developerConnection.set("scm:git:ssh://github.com/prafullKrRj/LLM-clients.git")
                     url.set("https://github.com/prafullKrRj/LLM-clients")
                 }
-            }
-        }
-    }
-
-    repositories {
-        maven {
-            name = "GitHubPackages"
-            url = uri("https://maven.pkg.github.com/prafullKrRj/LLM-clients")
-            credentials {
-                username = project.findProperty("gpr.user") as String? ?: System.getenv("USERNAME")
-                password = project.findProperty("gpr.key") as String? ?: System.getenv("TOKEN")
             }
         }
     }
