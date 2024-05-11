@@ -36,7 +36,7 @@ publishing {
             artifact(tasks["jar"]) {
                 classifier = "jar"
             }
-            version = "1.0.0-alpha"
+            version = "1.0.0:alpha"
             group = "com.github.prafullKrRj"
             pom {
                 name.set("LLM-Clients")
