@@ -1,6 +1,7 @@
 plugins {
     kotlin("jvm") version "1.9.23"
-    id("maven-publish")
+    `maven-publish`
+    signing
 }
 
 group = "com.github.prafullKrRj"
@@ -23,13 +24,50 @@ tasks.test {
 kotlin {
     jvmToolchain(19)
 }
+java {
+    withSourcesJar()
+    withJavadocJar()
+}
 publishing {
     publications {
         create<MavenPublication>("mavenJava") {
             from(components["java"])
-            groupId = group.toString() // Converts group ID to string
-            artifactId = "llm-client" // The artifact ID (project name)
-            version = version // Converts version to string
+
+            // Provide artifacts information required by JitPack
+            artifact(tasks.getByName("sourcesJar"))
+            artifact(tasks.getByName("javadocJar"))
+
+            pom {
+                name.set("llm-client")
+                description.set("A llm-client which provides functions to use different LLMs")
+                url.set("https://github.com/prafullKrRj/LLM-clients")
+                developers {
+                    developer {
+                        id.set("prafullKrRj")
+                        name.set("Prafull Kumar")
+                        email.set("prafullcodes@gmail.com")
+                    }
+                }
+                scm {
+                    connection.set("scm:git:https://github.com/prafullKrRj/LLM-clients.git")
+                    developerConnection.set("scm:git:ssh://github.com/prafullKrRj/LLM-clients.git")
+                    url.set("https://github.com/prafullKrRj/LLM-clients")
+                }
+            }
         }
     }
+
+    repositories {
+        maven {
+            name = "GitHubPackages"
+            url = uri("https://maven.pkg.github.com/prafullKrRj/LLM-clients")
+            credentials {
+                username = project.findProperty("gpr.user") as String? ?: System.getenv("USERNAME")
+                password = project.findProperty("gpr.key") as String? ?: System.getenv("TOKEN")
+            }
+        }
+    }
+}
+signing {
+
 }
