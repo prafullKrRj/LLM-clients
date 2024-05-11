@@ -1,0 +1,143 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "com.github.prafullKrRj",
+    "module": "LLM_Client",
+    "version": "1.0.0",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "8.4"
+    }
+  },
+  "variants": [
+    {
+      "name": "apiElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.environment": "standard-jvm",
+        "org.gradle.jvm.version": 19,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-api",
+        "org.jetbrains.kotlin.platform.type": "jvm"
+      },
+      "dependencies": [
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib",
+          "version": {
+            "requires": "1.9.23"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "LLM_Client-1.0.0.jar",
+          "url": "LLM_Client-1.0.0.jar",
+          "size": 1758,
+          "sha512": "11dfb4f7cf648ddfc8054a026962407c638142f0965aa6109de40a8089ce4bb70ef3afe86896842b15b547d707b181ddc80c7a2a3f923865c4603aa110279abc",
+          "sha256": "736055396198d4c5eb52e167cf65f1315e8ab511c8823723d6fb2d3d16438b25",
+          "sha1": "3e296adffa203fc1770732e3358e759266100174",
+          "md5": "1514739da0a2d479e8b3ede288baf6fb"
+        }
+      ]
+    },
+    {
+      "name": "runtimeElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.environment": "standard-jvm",
+        "org.gradle.jvm.version": 19,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-runtime",
+        "org.jetbrains.kotlin.platform.type": "jvm"
+      },
+      "dependencies": [
+        {
+          "group": "org.jetbrains.kotlinx",
+          "module": "kotlinx-coroutines-core",
+          "version": {
+            "requires": "1.5.2"
+          }
+        },
+        {
+          "group": "io.ktor",
+          "module": "ktor-client-core",
+          "version": {
+            "requires": "2.2.0"
+          }
+        },
+        {
+          "group": "io.ktor",
+          "module": "ktor-client-cio",
+          "version": {
+            "requires": "2.2.0"
+          }
+        },
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib",
+          "version": {
+            "requires": "1.9.23"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "LLM_Client-1.0.0.jar",
+          "url": "LLM_Client-1.0.0.jar",
+          "size": 1758,
+          "sha512": "11dfb4f7cf648ddfc8054a026962407c638142f0965aa6109de40a8089ce4bb70ef3afe86896842b15b547d707b181ddc80c7a2a3f923865c4603aa110279abc",
+          "sha256": "736055396198d4c5eb52e167cf65f1315e8ab511c8823723d6fb2d3d16438b25",
+          "sha1": "3e296adffa203fc1770732e3358e759266100174",
+          "md5": "1514739da0a2d479e8b3ede288baf6fb"
+        }
+      ]
+    },
+    {
+      "name": "sourcesElements",
+      "attributes": {
+        "org.gradle.category": "documentation",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.docstype": "sources",
+        "org.gradle.usage": "java-runtime"
+      },
+      "files": [
+        {
+          "name": "LLM_Client-1.0.0-sources.jar",
+          "url": "LLM_Client-1.0.0-sources.jar",
+          "size": 571,
+          "sha512": "ff2345fb1938e68c04e84c00e42fad72e2ccb5a3f6f0b5961ac670740b73e3fa933a7bed4903edfc0898d4ba43246e342801e8d9e43a2be1532ff6afc84268b2",
+          "sha256": "bf42797a43bd6411e25f1efebc471c6d0a0383d87a5c4bda39d0c4a814987f49",
+          "sha1": "680e6e0c619611f2a9e029f199f7b581b2fea3cc",
+          "md5": "393e622dd36ef58dd31a2b6e03f7c388"
+        }
+      ]
+    },
+    {
+      "name": "javadocElements",
+      "attributes": {
+        "org.gradle.category": "documentation",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.docstype": "javadoc",
+        "org.gradle.usage": "java-runtime"
+      },
+      "files": [
+        {
+          "name": "LLM_Client-1.0.0-javadoc.jar",
+          "url": "LLM_Client-1.0.0-javadoc.jar",
+          "size": 261,
+          "sha512": "d0c2418cd099ac4522beb44cdb31f094ec806632543332af3ebf900d9994afca05f1893b1644337f078d7ba242b79cc0b8e8f8dadfb8e33f5901b4c3ba4ce852",
+          "sha256": "a4cc43abce0cd3250b30ae81e50914fa0bd019c8098f750db55b37a54b2454ae",
+          "sha1": "8a1f68cf99f44873a1ca4e505787620a20619265",
+          "md5": "37aa9532e21fba218866b9a81b9d810b"
+        }
+      ]
+    }
+  ]
+}

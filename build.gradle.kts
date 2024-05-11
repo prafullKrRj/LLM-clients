@@ -2,6 +2,7 @@ plugins {
     kotlin("jvm") version "1.9.23"
     `maven-publish`
     signing
+    id("java-library")
 }
 
 group = "com.github.prafullKrRj"
@@ -25,39 +26,18 @@ kotlin {
     jvmToolchain(19)
 }
 java {
-    withSourcesJar()
-    withJavadocJar()
+    sourceCompatibility = JavaVersion.VERSION_17
+    targetCompatibility = JavaVersion.VERSION_17
 }
-publishing {
-    publications {
-        create<MavenPublication>("mavenJava") {
-            from(components["java"])
-
-            artifact(tasks["jar"]) {
-                classifier = "jar"
-            }
-            version = "1.0.0:alpha"
-            group = "com.github.prafullKrRj"
-            pom {
-                name.set("LLM-Clients")
-                description.set("Your Project Description")
-                url.set("https://github.com/prafullKrRj/LLM-clients")
-                developers {
-                    developer {
-                        id.set("prafullKrRj")
-                        name.set("Prafull Kumar")
-                        email.set("prafullcodes@gmail.com")
-                    }
-                }
-                scm {
-                    connection.set("scm:git:git://github.com/prafullKrRj/LLM-clients.git")
-                    developerConnection.set("scm:git:ssh://github.com/prafullKrRj/LLM-clients.git")
-                    url.set("https://github.com/prafullKrRj/LLM-clients")
-                }
+afterEvaluate {
+    publishing {
+        publications {
+            create<MavenPublication>("release") {
+                from(components["java"])
+                groupId = "com.github.prafullKrRj"
+                artifactId = "llm-client"
+                version = "1.0.0"
             }
         }
     }
-}
-signing {
-
 }
